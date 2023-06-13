@@ -1,11 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
-import productFormReducer from "./features/productformslice";
+import productForm from "./features/productformslice";
 import products from "./features/productslice";
+import receipts from "./features/receiptslice";
 
 export const store = configureStore({
   reducer: {
-    productForm: productFormReducer,
-    products: products,
+    productForm,
+    products,
+    receipts,
   },
   devTools: process.env.NODE_ENV !== "production",
 });

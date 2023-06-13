@@ -44,8 +44,7 @@ const Inventory = () => {
     
     //should i check for already existing products in reduxstore selectedproducts ?, answer that later
     
-    dispatch(selectProducts(selectedproducts.filter(item => item.checked == true)))
-    console.log(selectedproducts.filter(item => item.checked == true))
+    dispatch(selectProducts(selectedproducts.filter(item => item.checked == true)))    
     router.push('/pages/inventory/checkout')
   }
 

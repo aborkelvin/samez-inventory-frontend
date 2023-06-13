@@ -33,7 +33,7 @@ const TableRow = ({ productName, quantityAvailable, sellingPrice , _id , selecte
   };
 
   useEffect(()=>{
-    console.log(selectedproducts)
+    //console.log(selectedproducts)
   }, [selectedproducts])
   
 
