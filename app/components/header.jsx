@@ -2,7 +2,7 @@ import React from 'react';
 
 const Header = () => {
   return (
-    <div className='bg-[#f4f7fd] px-4 py-2 h-[100px] flex items-center '>
+    <div className='bg-[#ffffff] px-4 py-2 h-[100px] flex items-center border-b-[#E4EBFA] border-b-[1px] '>
       <input
         type='text'
         placeholder='Search products...'

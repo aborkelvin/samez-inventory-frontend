@@ -52,12 +52,12 @@ const Inventory = () => {
     <div className="p-10 min-h-screen w-full ">
       <h1 className="text-2xl font-bold mb-5">Inventory</h1>
 
-      <div className="w-full max-w-[1000px] bg-white rounded-lg p-7 ">
+      <div className="w-full max-w-[1000px] bg-white rounded-lg p-7 shadow-lg ">
         <div className="flex items-center justify-between mb-8 pl-3 pr-2 ">
-          <h2 className="font-medium text-xl">Products</h2>
+          <h2 className="font-medium text-xl hidden sm:inline-block ">Products</h2>
           <div className="flex gap-4">
             <button
-              className="bg-blue-500 hover:bg-blue-600 outline-none text-white font-bold py-2 px-4 rounded"
+              className="bg-[#635fc7] hover:bg-[#3c397e] outline-none text-white font-bold py-2 px-4 rounded"
               onClick={() => {
                 dispatch(openForm());
               }}
@@ -66,7 +66,7 @@ const Inventory = () => {
             </button>
 
             <button
-              className="bg-blue-500 hover:bg-blue-600 outline-none text-white font-bold py-2 px-4 rounded"              
+              className="bg-[#635fc7] hover:bg-[#3c397e] outline-none text-white font-bold py-2 px-4 rounded"              
             onClick={handlecheckout}
             >
               Checkout

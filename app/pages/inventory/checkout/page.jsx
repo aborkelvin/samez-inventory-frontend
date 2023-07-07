@@ -85,7 +85,7 @@ const Checkout = () => {
             discountamount,
             finalprice,
             customername:customername.value,
-            amountpaid:paymentamount ? paymentamount : 0 ,
+            amountpaid:paymentamount ? paymentamount : finalprice ,
             paymenttype,
             paymentmode,
             productdescription:selectedProducts.map((product,index) => ({
@@ -98,7 +98,7 @@ const Checkout = () => {
         }
 
         dispatch(setReceiptInfo(receiptInfo))    
-        router.push('/receiptpage')
+        router.push('/receipt')
     }    
 
     return (
@@ -108,8 +108,8 @@ const Checkout = () => {
             <div className="w-full max-w-[1000px] bg-white rounded-lg p-7 mb-10 ">
                 {selectedProducts.length === 0 ? (
                 <>
-                    <p className='mb-5' >No products selected</p>
-                    <Link href="/pages/inventory" className="bg-blue-500 hover:bg-blue-600 outline-none text-white font-bold py-2 px-4 rounded">
+                    <p className='mb-5 text-lg' >No products selected</p>
+                    <Link href="/pages/inventory" className="bg-[#635fc7] hover:bg-[#3c397e] outline-none text-white font-bold py-2 px-4 rounded">
                         Go to inventory      
                     </Link>
                     
@@ -130,7 +130,7 @@ const Checkout = () => {
                         <tr key={product._id} className="border-b hover:bg-gray-100 text-left">
                             <td className="py-2 px-1">{product.productName}</td>
                             <td className="py-2 px-1">{product.quantityAvailable} Kg</td>
-                            <td className="py-2 px-1">N {product.sellingPrice}</td>
+                            <td className="py-2 px-1">₦ {product.sellingPrice}</td>
                             <td className="py-2 px-1">
                                 <input
                                 type="number"
@@ -140,7 +140,7 @@ const Checkout = () => {
                                 onChange={(e) => handleQuantityChange(product._id, parseInt(e.target.value))}
                                 />
                             </td>
-                            <td className="py-2 px-1">N {calculateSubtotal(product)}</td>
+                            <td className="py-2 px-1">₦ {calculateSubtotal(product)}</td>
                         </tr>
                     ))}
                     <tr className="h-10">
@@ -149,7 +149,7 @@ const Checkout = () => {
                     <tr className='' >
                         <td className="py-2 px-1" colSpan={3}></td>
                         <td className="py-2 px-1 text-right font-bold">Total Price:</td>
-                        <td className="py-2 px-1 font-bold">N {calculateTotalPrice()}</td>
+                        <td className="py-2 px-1 font-bold">₦ {calculateTotalPrice()}</td>
                     </tr>
                     {/* <tr className="">
                             <td className="py-2 px-1" colSpan={5}></td>
@@ -281,7 +281,7 @@ const Checkout = () => {
                         </div>
                         <div className="font-bold text-lg ">
                             Final Price:
-                            <span className='text-xl'> N {(() => {
+                            <span className='text-xl'> ₦ {(() => {
                             let totalprice = calculateTotalPrice()
                             let finalprice;
                             discountamount > 0 && totalprice > 0  ? finalprice = totalprice - discountamount  : finalprice = totalprice

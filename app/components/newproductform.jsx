@@ -76,7 +76,7 @@ const Newproductform = () => {
             >
                 Discard
             </button>
-            <button className="bg-blue-500 hover:bg-blue-600 outline-none text-white font-bold py-2 px-4 rounded"
+            <button className="bg-[#635fc7] hover:bg-[#3c397e] outline-none text-white font-bold py-2 px-4 rounded"
             onClick={(event) => addProduct(event)}
             >
                 Add Product

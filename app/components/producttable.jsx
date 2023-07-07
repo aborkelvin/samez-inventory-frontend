@@ -41,7 +41,7 @@ const TableRow = ({ productName, quantityAvailable, sellingPrice , _id , selecte
     <tr className="border-b hover:bg-gray-100 text-left">        
         <td className="py-2 px-1">{productName}</td>
         <td className="py-2 px-1">{quantityAvailable}</td>
-        <td className="py-2 px-1">{sellingPrice}</td>
+        <td className="py-2 px-1">₦ {sellingPrice}</td>
         <td className='p-0' >
           <input type="checkbox" name="selectproduct" id="selectproduct" className='cursor-pointer w-10 h-5' onChange={handlechange}  />
         </td>        
