@@ -2,6 +2,7 @@ const { createSlice } = require("@reduxjs/toolkit")
 
 const initialState = {
     receiptInfo : {
+        _id: 1,
         totalprice:44320,
         discount:"true",
         discountamount:320,

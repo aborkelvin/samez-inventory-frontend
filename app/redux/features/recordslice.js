@@ -7,6 +7,7 @@ payment completion */
 const initialState = {
     records:[
         {
+            _id:1,
             totalprice:44320,        
             discountamount:320,
             finalprice:44000,
@@ -36,6 +37,7 @@ const initialState = {
             ]
         },
         {
+            _id:2,
             totalprice:44320,        
             discountamount:320,
             finalprice:44000,

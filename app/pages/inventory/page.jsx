@@ -49,10 +49,10 @@ const Inventory = () => {
   }
 
   return (
-    <div className="p-10 min-h-screen w-full ">
+    <div className="py-8 px-3 sm:px-6 xl:p-10" >
       <h1 className="text-2xl font-bold mb-5">Inventory</h1>
 
-      <div className="w-full max-w-[1000px] bg-white rounded-lg p-7 shadow-lg ">
+      <div className="w-full max-w-[1000px] bg-white rounded-lg p-4 md:p-7 shadow-lg ">
         <div className="flex items-center justify-between mb-8 pl-3 pr-2 ">
           <h2 className="font-medium text-xl hidden sm:inline-block ">Products</h2>
           <div className="flex gap-4">
@@ -74,7 +74,7 @@ const Inventory = () => {
           </div>
         </div>
 
-        <div className="h-fit mb-20">
+        <div className="h-fit mb-5">
         { products.length === 0 ? (
             <Loader />
           ) : (

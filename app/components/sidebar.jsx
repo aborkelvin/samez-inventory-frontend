@@ -68,6 +68,7 @@ const Sidebar = () => {
           ${activetab == 'debtors' ? ' bg-[#635fc7] text-white ' : 'text-[#5D6679] hover:text-white hover:bg-[#9996e6]  ' }  
           cursor-pointer`}
           onClick = {() => {
+            router.push('/pages/debtors')
             setactivetab('debtors')            
           }}
           >

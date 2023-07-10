@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { useRef } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useReactToPrint } from "react-to-print";
+import { addDebtor } from '../redux/features/debtorslice';
 import { updateRecord } from "../redux/features/recordslice";
 
 const Receiptpage = () =>{
@@ -22,7 +23,7 @@ const Receiptpage = () =>{
 
   const date = new Date();
 
-  const formattedDate = format(date, "MMM d' 'HH:mm");
+  const formattedDate = format(date, "MMM d', 'HH:mm");
 
   console.log(formattedDate); // Output: "Jun 28th 14:21"
 
@@ -117,7 +118,22 @@ const Receiptpage = () =>{
           let Recordsinfo  = {...receiptinfo};
           Recordsinfo['recordtype'] = 'Sales';
           Recordsinfo['date'] = formattedDate;
-          dispatch(updateRecord(Recordsinfo))
+                    
+          dispatch(updateRecord(Recordsinfo)) // this will be calling an api later and then updating the redux store with the api result
+          
+          if(receiptinfo.amountpaid < receiptinfo.finalprice){
+            let debtor = {
+              finalprice:receiptinfo.finalprice,
+              customername: receiptinfo.customername ,
+              amountpaid: receiptinfo.amountpaid,
+              amountowed: receiptinfo.finalprice - receiptinfo.amountpaid,        
+              paymentmode: receiptinfo.paymentmode ,
+              date:formattedDate,
+              receiptid: receiptinfo.receiptid 
+            }            
+            dispatch(addDebtor(debtor))
+          }
+
           router.push('/pages/records')      
         } }
         >

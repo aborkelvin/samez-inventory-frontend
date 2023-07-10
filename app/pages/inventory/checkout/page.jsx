@@ -115,54 +115,56 @@ const Checkout = () => {
                     
                 </>          
                 ) : (
-                <table className="w-full">
-                    <thead>
-                    <tr>
-                        <th className="py-2 px-1 text-left">Product Name</th>
-                        <th className="py-2 px-1 text-left">Quantity Available</th>
-                        <th className="py-2 px-1 text-left">Selling Price</th>
-                        <th className="py-2 px-1 text-left">Quantity to Buy</th>
-                        <th className="py-2 px-1 text-left">Subtotal</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {selectedProducts.map((product) => (
-                        <tr key={product._id} className="border-b hover:bg-gray-100 text-left">
-                            <td className="py-2 px-1">{product.productName}</td>
-                            <td className="py-2 px-1">{product.quantityAvailable} Kg</td>
-                            <td className="py-2 px-1">₦ {product.sellingPrice}</td>
-                            <td className="py-2 px-1">
-                                <input
-                                type="number"
-                                min="1"
-                                max={product.quantityAvailable}                        
-                                className="w-16 py-1 px-2 border border-gray-300 rounded outline-[#EEE2DE] "
-                                onChange={(e) => handleQuantityChange(product._id, parseInt(e.target.value))}
-                                />
-                            </td>
-                            <td className="py-2 px-1">₦ {calculateSubtotal(product)}</td>
+                <div className="overflow-x-auto">
+                    <table className="w-full ">
+                        <thead>
+                        <tr>
+                            <th className="py-2 px-1 text-left">Product Name</th>
+                            <th className="py-2 px-1 text-left">Quantity Available</th>
+                            <th className="py-2 px-1 text-left">Selling Price</th>
+                            <th className="py-2 px-1 text-left">Quantity to Buy</th>
+                            <th className="py-2 px-1 text-left">Subtotal</th>
                         </tr>
-                    ))}
-                    <tr className="h-10">
-                        <td className="py-2 px-1" colSpan={5}></td>
-                    </tr>
-                    <tr className='' >
-                        <td className="py-2 px-1" colSpan={3}></td>
-                        <td className="py-2 px-1 text-right font-bold">Total Price:</td>
-                        <td className="py-2 px-1 font-bold">₦ {calculateTotalPrice()}</td>
-                    </tr>
-                    {/* <tr className="">
+                        </thead>
+                        <tbody>
+                        {selectedProducts.map((product) => (
+                            <tr key={product._id} className="border-b hover:bg-gray-100 text-left">
+                                <td className="py-2 px-1">{product.productName}</td>
+                                <td className="py-2 px-1">{product.quantityAvailable} Kg</td>
+                                <td className="py-2 px-1">₦ {product.sellingPrice}</td>
+                                <td className="py-2 px-1">
+                                    <input
+                                    type="number"
+                                    min="1"
+                                    max={product.quantityAvailable}
+                                    className="w-16 py-1 px-2 border border-gray-300 rounded outline-[#EEE2DE] "
+                                    onChange={(e) => handleQuantityChange(product._id, parseInt(e.target.value))}
+                                    />
+                                </td>
+                                <td className="py-2 px-1">₦ {calculateSubtotal(product)}</td>
+                            </tr>
+                        ))}
+                        <tr className="h-10">
                             <td className="py-2 px-1" colSpan={5}></td>
-                    </tr>
-                    <tr>
-                        <td className='text-right pr-20 ' colSpan={5}  >
-                            <button className="bg-blue-500 hover:bg-blue-600 outline-none text-white font-bold py-2 px-4 rounded">
-                                Checkout
-                            </button>
-                        </td>
-                    </tr> */}
-                    </tbody>
-                </table>
+                        </tr>
+                        <tr className='' >
+                            <td className="py-2 px-1" colSpan={3}></td>
+                            <td className="py-2 px-1 text-right font-bold">Total Price:</td>
+                            <td className="py-2 px-1 font-bold">₦ {calculateTotalPrice()}</td>
+                        </tr>
+                        {/* <tr className="">
+                                <td className="py-2 px-1" colSpan={5}></td>
+                        </tr>
+                        <tr>
+                            <td className='text-right pr-20 ' colSpan={5}  >
+                                <button className="bg-blue-500 hover:bg-blue-600 outline-none text-white font-bold py-2 px-4 rounded">
+                                    Checkout
+                                </button>
+                            </td>
+                        </tr> */}
+                        </tbody>
+                    </table>
+                </div>
                 )}           
             </div>
 

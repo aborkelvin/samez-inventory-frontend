@@ -53,25 +53,26 @@ const Table = ({ data, selectedproducts,setselectedproducts }) => {
 
 
   return (
-    <table className="w-full">
-      <thead>
-        <tr>
-          <th className="py-2 px-1 text-left ">Product Name</th>
-          <th className="py-2 px-1 text-left ">Quantity Available</th>
-          <th className="py-2 px-1 text-left ">Selling Price</th>
-        </tr>
-      </thead>
-      <tbody>
-        {data && data.length > 0 ? (
-          data.map((row, index) => <TableRow key={row._id} {...row} selectedproducts = {selectedproducts} setselectedproducts = {setselectedproducts} />)
-        ) : (
-          <tr className='pt-10' >
-            <td colSpan="3" className='text-center text-lg font-medium relative right-9 ' >No products available</td>
+    <div className="overflow-x-auto">
+      <table className="w-full">
+        <thead>
+          <tr>
+            <th className="py-2 px-1 text-left ">Product Name</th>
+            <th className="py-2 px-1 text-left ">Quantity Available</th>
+            <th className="py-2 px-1 text-left ">Selling Price</th>
           </tr>
-        )}
-      </tbody>
-
-    </table>
+        </thead>
+        <tbody>
+          {data && data.length > 0 ? (
+            data.map((row, index) => <TableRow key={row._id} {...row} selectedproducts = {selectedproducts} setselectedproducts = {setselectedproducts} />)
+          ) : (
+            <tr className='pt-10' >
+              <td colSpan="3" className='text-center text-lg font-medium relative right-9 ' >No products available</td>
+            </tr>
+          )}
+        </tbody>
+      </table>
+    </div>
   );
 };
 
