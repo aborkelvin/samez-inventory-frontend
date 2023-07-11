@@ -1,42 +1,44 @@
 'use client'
 import { useSelector } from "react-redux";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 function RecordsPage() {
   const records = useSelector((state) => state.records.records);
+  const router = useRouter()
 
   return (
     <div className="py-10 px-2 sm:px-8">
       <h1 className="text-2xl font-bold mb-4">Sales Records</h1>
-      <div className="flex flex-col w-full xl:w-[70%] md:max-w-[500px] xl:max-w-[700px] gap-4">
-        {records.map((record, index) => (
-          <Link key={index} href={`/pages/records/${index}`}>
-            <div className="bg-white p-4 border border-gray-300 shadow hover:bg-gray-100 rounded cursor-pointer">
-              <div className="flex justify-between gap-3 ">
-                  <div className="mb-2 font-bold ">
-                    {/* <span className="font-semibold">Customer Name:</span>{" "} */}
-                    {/* {record.customername} */}
-                    {record.recordtype}
-                  </div>
-                  <div className="mb-2">
-                    <span className="font-semibold">Total Price:</span>{" "}
-                    ₦ {record.finalprice}
-                  </div>
-              </div>
-              <div className="flex justify-between gap-3">
-                  <div className="mb-2">
-                    {/* <span className="font-semibold">Date:</span> */} {record.date}
-                  </div>
-                  
-                  <div className="mb-2">
-                    <span className="font-semibold">Amount Paid:</span>{" "}
-                    ₦ {record.amountpaid}
-                  </div>
-              </div>
-              {/* Add any other relevant summary information here */}
-            </div>
-          </Link>
-        ))}
+      <div className="w-full max-w-[1000px] overflow-x-auto ">
+        <div className="w-full max-w-[1000px] h-2 bg-purple-800  rounded-t-lg " ></div>
+        <table className="w-full bg-white border shadow-lg text-left ">
+          <thead>
+            <tr className="border-b">
+              <th className="py-3 px-4">Customer</th>
+              <th className="py-3 px-4">Date</th>
+              <th className="py-3 px-4">Final Price</th>
+              <th className="py-3 px-4">Amount Paid</th>
+            </tr>
+          </thead>
+          <tbody>
+            {records.map((record, index) => (              
+                <tr key={index} className="hover:bg-gray-100 border-b cursor-pointer "
+                  onClick={ () => {
+                    router.push(`/pages/records/${index}`)
+                  } }
+                  >                  
+                    <td className="py-3 px-4">
+                      {record.customername}
+                    </td>
+                    <td className="py-3 px-4">{record.date}</td>
+                    <td className="py-3 px-4">₦ {record.finalprice}</td>
+                    <td className="py-3 px-4">₦ {record.amountpaid}</td>                  
+                </tr>
+              
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
   );

@@ -22,7 +22,7 @@ const Debtors = (props) => {
                     </thead>
                     <tbody>
                         { debtorsInfo.map((debtor,i) => (
-                                    <tr className="border-b hover:bg-gray-100 text-left ">
+                                    <tr key={i} className="border-b hover:bg-gray-100 text-left ">
                                         <td className="py-3 px-2 sm:px-6 ">
                                             {debtor.customername}
                                         </td>
