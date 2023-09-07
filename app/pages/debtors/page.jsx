@@ -1,11 +1,14 @@
 'use client'
 
+import { useRouter } from "next/navigation"
 import { useSelector } from "react-redux"
 
 const Debtors = (props) => {
 
+    const router = useRouter()
     const debtorsInfo = useSelector(state => state.debtors)
     {/* {debtorsInfo[0].customername} */}
+
     return(
         <div className="py-8 px-3 xl:p-10 " >
             <h1 className="text-2xl mb-4 font-bold" >Debtors</h1>
@@ -22,7 +25,12 @@ const Debtors = (props) => {
                     </thead>
                     <tbody>
                         { debtorsInfo.map((debtor,i) => (
-                                    <tr key={i} className="border-b hover:bg-gray-100 text-left ">
+                                    <tr key={i} className="border-b hover:bg-gray-100 text-left cursor-pointer "
+                                    
+                                        onClick={() => {
+                                            router.push(`/pages/debtors/${i}`)
+                                        }}
+                                        >
                                         <td className="py-3 px-2 sm:px-6 ">
                                             {debtor.customername}
                                         </td>
