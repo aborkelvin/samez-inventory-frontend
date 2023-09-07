@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Asset2 from '@/public/images/assets/asset2';
 import { useRouter } from 'next/navigation';
@@ -8,7 +8,20 @@ import { useRouter } from 'next/navigation';
 const Sidebar = () => {
 
   const router = useRouter()
-  const [activetab, setactivetab] = useState('inventory')
+  const [activetab, setactivetab] = useState('')
+
+  useEffect( () => {
+    
+    const url = window.location.href;
+    const dirs = ['dashboard', 'inventory','records','debtors']
+    
+    for(let i = 0; i < dirs.length; i++ ){
+      if(url.includes(dirs[i])){
+        setactivetab(dirs[i])
+      }
+    }
+
+  },[])
 
   return (
     <div className='w-full max-w-[430px] min-h-screen pb-10  bg-[#ffffff] border-[1px] border-[#E4EBFA] '>

@@ -9,7 +9,7 @@ const initialState = [
         amountowed: 10000,        
         paymentmode:'cash',
         date:'Jun 28, 14:21',
-        receiptid:20
+        receiptid:1
     },
     {
         _id:2,        
@@ -19,7 +19,7 @@ const initialState = [
         amountowed: 100000,        
         paymentmode:'cash',
         date:'Jun 27, 14:21',
-        receiptid:20
+        receiptid:2
     }
 ]
 

@@ -46,8 +46,8 @@ const DetailedRecordpage = ({ params }) => {
                     {product.productName}
                   </div>
                   <div>
-                    <span className="font-semibold">Quantity Available:</span>{' '}
-                    {product.quantityAvailable}
+                    <span className="font-semibold">Quantity Bought:</span>{' '}
+                    {product.buyquantity} kg
                   </div>
                   <div>
                     <span className="font-semibold">Selling Price:</span>{' '}
